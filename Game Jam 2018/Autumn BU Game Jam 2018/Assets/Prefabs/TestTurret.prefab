@@ -41,9 +41,10 @@ GameObject:
   - component: {fileID: 65135987857851956}
   - component: {fileID: 23857115886056978}
   - component: {fileID: 54480681736630012}
+  - component: {fileID: 114811329978856714}
   m_Layer: 0
   m_Name: TestTurret
-  m_TagString: Untagged
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83,7 +84,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1567617228253624}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.928, z: 0}
+  m_LocalPosition: {x: 15.975585, y: 0.69871426, z: 12.823829}
   m_LocalScale: {x: 2, y: 0.3974285, z: 2}
   m_Children:
   - {fileID: 4825640631995638}
@@ -225,3 +226,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114811329978856714
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1567617228253624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9ad40032e08a124a98ec9f7f61d8f64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tManager: {fileID: 0}

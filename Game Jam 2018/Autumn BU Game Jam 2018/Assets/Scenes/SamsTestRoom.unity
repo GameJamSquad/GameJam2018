@@ -113,6 +113,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &84240021 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1892013080531478, guid: e1389bdf9e8f74941a8fabe5a5d7f1f7,
+    type: 2}
+  m_PrefabInternal: {fileID: 1932251997}
 --- !u!4 &249720555 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4736499231096208, guid: 51f350f3000e5fe45b52414413f3c864,
@@ -181,7 +186,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1001 &791967338
 Prefab:
@@ -222,9 +227,19 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114811329978856714, guid: 51f350f3000e5fe45b52414413f3c864,
+        type: 2}
+      propertyPath: tankObject
+      value: 
+      objectReference: {fileID: 1070389767}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 51f350f3000e5fe45b52414413f3c864, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1070389767 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1892013080531478, guid: e1389bdf9e8f74941a8fabe5a5d7f1f7,
+    type: 2}
+  m_PrefabInternal: {fileID: 1867826276}
 --- !u!54 &1124491752 stripped
 Rigidbody:
   m_PrefabParentObject: {fileID: 54480681736630012, guid: 51f350f3000e5fe45b52414413f3c864,
@@ -394,7 +409,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4193908833064448, guid: e1389bdf9e8f74941a8fabe5a5d7f1f7, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 114218336755256524, guid: e1389bdf9e8f74941a8fabe5a5d7f1f7,
         type: 2}
@@ -406,6 +421,11 @@ Prefab:
       propertyPath: firePoint
       value: 
       objectReference: {fileID: 249720555}
+    - target: {fileID: 114218336755256524, guid: e1389bdf9e8f74941a8fabe5a5d7f1f7,
+        type: 2}
+      propertyPath: fire
+      value: Fire_P1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e1389bdf9e8f74941a8fabe5a5d7f1f7, type: 2}
   m_IsPrefabParent: 0
@@ -448,10 +468,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1567617228253624, guid: 51f350f3000e5fe45b52414413f3c864, type: 2}
-      propertyPath: m_Name
-      value: TestTurret
-      objectReference: {fileID: 0}
+    - target: {fileID: 114811329978856714, guid: 51f350f3000e5fe45b52414413f3c864,
+        type: 2}
+      propertyPath: tankObject
+      value: 
+      objectReference: {fileID: 84240021}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 51f350f3000e5fe45b52414413f3c864, type: 2}
   m_IsPrefabParent: 0
@@ -497,7 +518,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4193908833064448, guid: e1389bdf9e8f74941a8fabe5a5d7f1f7, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1892013080531478, guid: e1389bdf9e8f74941a8fabe5a5d7f1f7, type: 2}
       propertyPath: m_Name
@@ -513,9 +534,44 @@ Prefab:
       propertyPath: turretRb
       value: 
       objectReference: {fileID: 1872327878}
+    - target: {fileID: 114218336755256524, guid: e1389bdf9e8f74941a8fabe5a5d7f1f7,
+        type: 2}
+      propertyPath: firePoint
+      value: 
+      objectReference: {fileID: 2055726479}
+    - target: {fileID: 114218336755256524, guid: e1389bdf9e8f74941a8fabe5a5d7f1f7,
+        type: 2}
+      propertyPath: horizontal
+      value: Horizontal_P2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114218336755256524, guid: e1389bdf9e8f74941a8fabe5a5d7f1f7,
+        type: 2}
+      propertyPath: vertical
+      value: Vertical_P2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114218336755256524, guid: e1389bdf9e8f74941a8fabe5a5d7f1f7,
+        type: 2}
+      propertyPath: fire
+      value: Fire1_P2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114218336755256524, guid: e1389bdf9e8f74941a8fabe5a5d7f1f7,
+        type: 2}
+      propertyPath: turretRotation
+      value: TurretRotation_P2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114218336755256524, guid: e1389bdf9e8f74941a8fabe5a5d7f1f7,
+        type: 2}
+      propertyPath: fireGun
+      value: Fire1_P2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e1389bdf9e8f74941a8fabe5a5d7f1f7, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &2055726479 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4825640631995638, guid: 51f350f3000e5fe45b52414413f3c864,
+    type: 2}
+  m_PrefabInternal: {fileID: 1872327877}
 --- !u!1 &2111033586
 GameObject:
   m_ObjectHideFlags: 0
