@@ -29,7 +29,7 @@ public class TankManager : MonoBehaviour
 
 	void Update ()
     {
-		
+        Debug.Log(Input.GetButtonDown("Fire1_P1") + " " + Input.GetButtonDown("Fire1_P2"));
 	}
 
     void FixedUpdate()
@@ -37,19 +37,20 @@ public class TankManager : MonoBehaviour
         InputManager();
     }
 
-    IEnumerator FireGun()
+    void FireGun()
     {
         if(canShot == true)
         {
             Instantiate(bullet, firePoint.position, firePoint.rotation);
+            StartCoroutine(GunCooldown());
             canShot = false;
-            StartCoroutine(FireGun());
         }
-        else
-        {
-            yield return new WaitForSeconds(gunCooldown);
-            canShot = true;
-        }
+    }
+
+    IEnumerator GunCooldown()
+    {
+        yield return new WaitForSeconds(gunCooldown);
+        canShot = true;
     }
 
     void UpdateTurretPosition()
@@ -98,7 +99,7 @@ public class TankManager : MonoBehaviour
         if (Input.GetButtonDown(fireGun))
         {
             Debug.Log("FIRE PLAYER " + playerNumber);
-            StartCoroutine(FireGun());
+            FireGun();
         }
     }
 }
