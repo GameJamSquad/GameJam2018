@@ -1,18 +1,18 @@
 fileFormatVersion: 2
-guid: e6a4f73bebaa3e7448dbcb7e18ec786e
-timeCreated: 1541708062
+guid: 6d851337466577f4a9a7a8f93a74c09a
+timeCreated: 1541711145
 licenseType: Pro
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: Steel
-    2100002: Hold
+    2100000: Walls
+    2100002: Door
+    2100004: Windows
     2300000: //RootNode
     3300000: //RootNode
-    4300000: TankTrap
-    9500000: //RootNode
+    4300000: pCube1
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -43,7 +43,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 18
+    globalScale: 150
     meshCompression: 0
     addColliders: 0
     importVisibility: 1
@@ -87,7 +87,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

@@ -1,17 +1,17 @@
 fileFormatVersion: 2
-guid: e6a4f73bebaa3e7448dbcb7e18ec786e
-timeCreated: 1541708062
+guid: ff1b407be6eaad24c955309f0eb5bf24
+timeCreated: 1541710951
 licenseType: Pro
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: Steel
-    2100002: Hold
+    2100000: Dirt
+    2100002: Grass
     2300000: //RootNode
     3300000: //RootNode
-    4300000: TankTrap
+    4300000: DirtStraight
     9500000: //RootNode
   externalObjects: {}
   materials:
@@ -43,7 +43,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 18
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     importVisibility: 1
