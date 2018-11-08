@@ -9,6 +9,12 @@ public class TankManager : MonoBehaviour
     public Rigidbody rb, turretRb;
     public float movementForce;
 
+    public Transform turretPos;
+    bool canShot = true;
+    public Transform firePoint;
+    public GameObject bullet;
+    public float gunCooldown = 1f;
+
 	void Start ()
     {
 		
@@ -24,8 +30,30 @@ public class TankManager : MonoBehaviour
         InputManager();
     }
 
+    IEnumerator FireGun()
+    {
+        if(canShot == true)
+        {
+            Instantiate(bullet, firePoint.position, firePoint.rotation);
+            canShot = false;
+            StartCoroutine(FireGun());
+        }
+        else
+        {
+            yield return new WaitForSeconds(gunCooldown);
+            canShot = true;
+        }
+    }
+
+    void UpdateTurretPosition()
+    {
+        turretRb.transform.position = turretPos.position;
+    }
+
     void InputManager()
     {
+        UpdateTurretPosition();
+
         if (playerNumber == 1)
         {
             if (Input.GetKey(KeyCode.W) || Input.GetAxis("Vertical_P1") > 0.1f)
@@ -61,9 +89,10 @@ public class TankManager : MonoBehaviour
                 Quaternion deltaRotation = Quaternion.Euler(m_EulerAngleVelocity * Time.deltaTime);
                 turretRb.MoveRotation(turretRb.rotation * deltaRotation);
             }
-            if (Input.GetKey(KeyCode.F) || Input.GetButton("Fire1_P1"))
+            if (Input.GetKeyDown(KeyCode.F) || Input.GetButtonDown("Fire1_P1"))
             {
                 Debug.Log("FIRE PLAYER 1");
+                StartCoroutine(FireGun());
             }
         }
         else if (playerNumber == 2)
@@ -101,9 +130,10 @@ public class TankManager : MonoBehaviour
                 Quaternion deltaRotation = Quaternion.Euler(m_EulerAngleVelocity * Time.deltaTime);
                 turretRb.MoveRotation(turretRb.rotation * deltaRotation);
             }
-            if (Input.GetKey(KeyCode.L) || Input.GetButton("Fire1_P2"))
+            if (Input.GetKeyDown(KeyCode.L) || Input.GetButtonDown("Fire1_P2"))
             {
                 Debug.Log("FIRE PLAYER 2");
+                StartCoroutine(FireGun());
             }
         }
     }
