@@ -6,6 +6,7 @@ public class TankManager : MonoBehaviour
 {
 
     public Rigidbody rb;
+    public float movementForce;
 
 	void Start ()
     {
@@ -26,23 +27,23 @@ public class TankManager : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.W))
         {
-            Vector3 newPos = new Vector3(transform.position.x, transform.position.y, transform.position.z + 0.1f);
-            transform.localPosition = newPos;
+            rb.AddForce(transform.forward * movementForce);
         }
         if (Input.GetKey(KeyCode.S))
         {
-            Quaternion newRot = new Quaternion(transform.rotation.x, transform.rotation.y + 0.1f, transform.rotation.z, 0);
-            rb.rotation = newRot;
+            rb.AddForce(-transform.forward * (movementForce / 2f));
         }
         if (Input.GetKey(KeyCode.A))
         {
-            Quaternion newRot = new Quaternion(transform.rotation.x, transform.rotation.y - 0.1f, transform.rotation.z, 0);
-            rb.rotation = newRot;
+            Vector3 m_EulerAngleVelocity = new Vector3(0, -50, 0);
+            Quaternion deltaRotation = Quaternion.Euler(m_EulerAngleVelocity * Time.deltaTime);
+            rb.MoveRotation(rb.rotation * deltaRotation);
         }
         if (Input.GetKey(KeyCode.D))
         {
-            Quaternion newRot = new Quaternion(transform.rotation.x, transform.rotation.y + 0.1f, transform.rotation.z, 0);
-            transform.rotation = newRot;
+            Vector3 m_EulerAngleVelocity = new Vector3(0, 50, 0);
+            Quaternion deltaRotation = Quaternion.Euler(m_EulerAngleVelocity * Time.deltaTime);
+            rb.MoveRotation(rb.rotation * deltaRotation);
         }
     }
 }
