@@ -1,17 +1,17 @@
 fileFormatVersion: 2
-guid: f856a0fef759c6f4a94d3376e07723e2
-timeCreated: 1541717647
-licenseType: Free
+guid: dbb0bceac4b28a543b896b660cbc69a4
+timeCreated: 1541769042
+licenseType: Pro
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: Wheels
-    2100002: Tracks
+    2100000: Head Base
+    2100002: Head Band
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Tracks
+    4300000: Head
   externalObjects: {}
   materials:
     importMaterials: 1
