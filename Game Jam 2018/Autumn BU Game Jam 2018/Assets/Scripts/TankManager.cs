@@ -14,6 +14,9 @@ public class TankManager : MonoBehaviour
     public MeshRenderer bodyRenderer, turretRenderer, trackRenderer;
     public MeshCollider bodyCol, turretCol;
 
+    bool hasSpawnedDeadBody = false;
+    public GameObject destroyedBody;
+
     public int playerNumber;
     public List<Material> pMaterials;
 
@@ -79,6 +82,13 @@ public class TankManager : MonoBehaviour
 
     IEnumerator Respawn()
     {
+        if (!hasSpawnedDeadBody)
+        {
+            Instantiate(destroyedBody, transform.position, transform.rotation);
+            hasSpawnedDeadBody = true;
+        }
+
+
         int respawnPoint = Random.Range(0, gManager.respawnPoints.Count);
 
         transform.position = gManager.respawnPoints[respawnPoint].position;
@@ -93,6 +103,7 @@ public class TankManager : MonoBehaviour
         turretCol.enabled = true;
 
         health = maxHealth;
+        hasSpawnedDeadBody = false;
     }
 
     public void AdjustScore()

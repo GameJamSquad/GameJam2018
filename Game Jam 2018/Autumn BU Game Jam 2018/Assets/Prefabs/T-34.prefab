@@ -150,7 +150,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1010466633036372}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.775712, y: 1.9244425, z: 5.226368}
+  m_LocalPosition: {x: 30.034727, y: 1.9244425, z: 1.2953243}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4686646643938908}
@@ -458,6 +458,8 @@ MonoBehaviour:
   trackRenderer: {fileID: 23825545372337584}
   bodyCol: {fileID: 64486029675569266}
   turretCol: {fileID: 64124191324145260}
+  destroyedBody: {fileID: 1305787367494562, guid: 0f8df128a69e759438dc8d0bc4f220bf,
+    type: 2}
   playerNumber: 1
   pMaterials:
   - {fileID: 2100000, guid: eefd33936f43cea43afe294daa3eb73b, type: 2}
