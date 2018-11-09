@@ -12,6 +12,8 @@ public class TimeAdjuster : MonoBehaviour
     public float adjustAmount;
     public float cooldownTime;
 
+    public bool isSlowDown = false;
+
 	void Start ()
     {
         gManager = GameObject.FindObjectOfType<GameManager>();
@@ -38,6 +40,16 @@ public class TimeAdjuster : MonoBehaviour
                 gManager.AdjustTimeSpeed(adjustAmount);
                 mRenderer.enabled = false;
                 mCollider.enabled = false;
+
+                if (isSlowDown)
+                {
+                    gManager.slowdownOn = true;
+                }
+                else
+                {
+                    gManager.speedupOn = true;
+                }
+
                 StartCoroutine(StartCooldown());
             }
         }

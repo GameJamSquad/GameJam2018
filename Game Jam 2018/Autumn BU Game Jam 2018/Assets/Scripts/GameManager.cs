@@ -20,12 +20,11 @@ public class GameManager : MonoBehaviour
     public List<GameObject> playerPanels;
     public List<GameObject> playerInPanels;
 
+    public GameObject scorePanel;
     public List<Text> playerScores;
 
     public int numOfPlayers = 1;
     public List<TankManager> tanks;
-
-    public List<TankTurret> turrets;
 
     public List<GameObject> tankTypes;
 
@@ -36,6 +35,7 @@ public class GameManager : MonoBehaviour
 
     public float timeSpeed = 1;
     public bool slowdownOn, speedupOn;
+    public GameObject slowDownPanel, speedUpPanel;
 
     public void AdjustTimeSpeed(float amount)
     {
@@ -120,6 +120,27 @@ public class GameManager : MonoBehaviour
             playerPanels[3].SetActive(true);
             playerInPanels[3].SetActive(false);
         }
+
+        if (!lobbyOpen)
+        {
+            scorePanel.SetActive(true);
+        }
+        if (speedupOn)
+        {
+            speedUpPanel.SetActive(true);
+        }
+        else
+        {
+            speedUpPanel.SetActive(false);
+        }
+        if (slowdownOn)
+        {
+            slowDownPanel.SetActive(true);
+        }
+        else
+        {
+            slowDownPanel.SetActive(false);
+        }
     }
 
     public void AddFirstPlayer()
@@ -165,6 +186,8 @@ public class GameManager : MonoBehaviour
     {
         for(int i = 0; i < tanks.Count; i++)
         {
+            playerScores[i].text = tanks[i].score.ToString();
+
             if(tanks[i].score >= scoreToWin)
             {
                 winningPlayer = i + 1;
@@ -235,15 +258,5 @@ public class GameManager : MonoBehaviour
             AddFourthPlayer();
         }
     }
-}
-
-[System.Serializable]
-public class TankTurret
-{
-    public int id;
-    public GameObject model;
-    public float rotationSpeed;
-    public float shellVelocity;
-    public int damage;
 }
 

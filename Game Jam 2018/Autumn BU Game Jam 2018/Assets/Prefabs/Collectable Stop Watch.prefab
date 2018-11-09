@@ -116,3 +116,4 @@ MonoBehaviour:
   gManager: {fileID: 0}
   adjustAmount: 2
   cooldownTime: 5
+  isSlowDown: 0
