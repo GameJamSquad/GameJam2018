@@ -36,7 +36,7 @@ public class Bullet : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            TankManager tHit = other.transform.root.GetComponent<TankManager>();
+            TankManager tHit = other.transform.parent.GetComponent<TankManager>();
             tHit.health -= damage;
             if (tHit.health <= 0)
             {
