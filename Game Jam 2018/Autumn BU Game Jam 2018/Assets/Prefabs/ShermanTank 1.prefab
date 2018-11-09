@@ -247,7 +247,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1898218417680238}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17.178478, y: 2.671806, z: -32.131912}
+  m_LocalPosition: {x: 0.20824242, y: 2.671806, z: 7.796425}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4603331096572026}
@@ -499,4 +499,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9ad40032e08a124a98ec9f7f61d8f64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tankObject: {fileID: 1308670331093004}
+  tankObject: {fileID: 1592084199133710}
