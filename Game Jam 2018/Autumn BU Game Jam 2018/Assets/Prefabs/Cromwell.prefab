@@ -192,7 +192,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1667570007221322}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.31, z: 2.94}
+  m_LocalPosition: {x: 0, y: -0.07, z: 6.31}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4295579867654750}
@@ -232,7 +232,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1174558881745814}
   m_LocalRotation: {x: 0, y: -0.016928969, z: 0, w: 0.99985677}
-  m_LocalPosition: {x: 9.895937, y: 1.3025942, z: -7.0495076}
+  m_LocalPosition: {x: -13.347901, y: 2.7725928, z: 19.200167}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4041745997801176}
@@ -469,7 +469,7 @@ MonoBehaviour:
   turretRotationSpeed: 100
   turretPos: {fileID: 4106425609394544}
   firePoint: {fileID: 4142908642549840}
-  bullet: {fileID: 1840221179134040, guid: 911aca429f2c02d46b64782c3d0582b4, type: 2}
+  bullet: {fileID: 1239692429269326, guid: 09271639cb080d2489a3ede2099889e8, type: 2}
   gunCooldown: 1
 --- !u!114 &114207072221125052
 MonoBehaviour:

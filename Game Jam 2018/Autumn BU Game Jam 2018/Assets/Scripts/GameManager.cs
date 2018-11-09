@@ -37,11 +37,6 @@ public class GameManager : MonoBehaviour
     public float timeSpeed = 1;
     public bool slowdownOn, speedupOn;
 
-    private void Start()
-    {
-        
-    }
-
     public void AdjustTimeSpeed(float amount)
     {
         timeSpeed += amount;
