@@ -310,23 +310,15 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 1395441742143146, guid: b7ae37db60f59b540926b30a3cc14cbe, type: 2}
+      propertyPath: m_Name
+      value: ShermanTurret2
+      objectReference: {fileID: 0}
     - target: {fileID: 114873645802960886, guid: b7ae37db60f59b540926b30a3cc14cbe,
         type: 2}
       propertyPath: tankObject
       value: 
       objectReference: {fileID: 1371215049}
-    - target: {fileID: 1395441742143146, guid: b7ae37db60f59b540926b30a3cc14cbe, type: 2}
-      propertyPath: m_Name
-      value: ShermanTurret2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1026021204151196, guid: b7ae37db60f59b540926b30a3cc14cbe, type: 2}
-      propertyPath: m_TagString
-      value: Turret
-      objectReference: {fileID: 0}
-    - target: {fileID: 4430860379162694, guid: b7ae37db60f59b540926b30a3cc14cbe, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 3.726
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b7ae37db60f59b540926b30a3cc14cbe, type: 2}
   m_IsPrefabParent: 0
@@ -786,19 +778,15 @@ Prefab:
       propertyPath: m_RootOrder
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 1395441742143146, guid: b7ae37db60f59b540926b30a3cc14cbe, type: 2}
+      propertyPath: m_Name
+      value: ShermanTurret4
+      objectReference: {fileID: 0}
     - target: {fileID: 114873645802960886, guid: b7ae37db60f59b540926b30a3cc14cbe,
         type: 2}
       propertyPath: tankObject
       value: 
       objectReference: {fileID: 1972865419}
-    - target: {fileID: 1395441742143146, guid: b7ae37db60f59b540926b30a3cc14cbe, type: 2}
-      propertyPath: m_Name
-      value: ShermanTurret4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1026021204151196, guid: b7ae37db60f59b540926b30a3cc14cbe, type: 2}
-      propertyPath: m_TagString
-      value: Turret
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b7ae37db60f59b540926b30a3cc14cbe, type: 2}
   m_IsPrefabParent: 0
@@ -894,6 +882,16 @@ MeshRenderer:
 --- !u!1 &906684808 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1412436028454990, guid: 6e20cbc6959a4794aa90b20b11faa2b7,
+    type: 2}
+  m_PrefabInternal: {fileID: 1446854377}
+--- !u!64 &906684809 stripped
+MeshCollider:
+  m_PrefabParentObject: {fileID: 64578174684058608, guid: 6e20cbc6959a4794aa90b20b11faa2b7,
+    type: 2}
+  m_PrefabInternal: {fileID: 1446854377}
+--- !u!23 &906684810 stripped
+MeshRenderer:
+  m_PrefabParentObject: {fileID: 23118652068173916, guid: 6e20cbc6959a4794aa90b20b11faa2b7,
     type: 2}
   m_PrefabInternal: {fileID: 1446854377}
 --- !u!1 &921593675
@@ -1113,6 +1111,11 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 940035391}
+--- !u!23 &998054041 stripped
+MeshRenderer:
+  m_PrefabParentObject: {fileID: 23965687156394654, guid: 6e20cbc6959a4794aa90b20b11faa2b7,
+    type: 2}
+  m_PrefabInternal: {fileID: 1446854377}
 --- !u!4 &1020050509 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4430860379162694, guid: b7ae37db60f59b540926b30a3cc14cbe,
@@ -1534,6 +1537,31 @@ Prefab:
       propertyPath: firePoint
       value: 
       objectReference: {fileID: 1020050509}
+    - target: {fileID: 114112693272114838, guid: 6e20cbc6959a4794aa90b20b11faa2b7,
+        type: 2}
+      propertyPath: bodyRenderer
+      value: 
+      objectReference: {fileID: 906684810}
+    - target: {fileID: 114112693272114838, guid: 6e20cbc6959a4794aa90b20b11faa2b7,
+        type: 2}
+      propertyPath: turretRenderer
+      value: 
+      objectReference: {fileID: 1768767128}
+    - target: {fileID: 114112693272114838, guid: 6e20cbc6959a4794aa90b20b11faa2b7,
+        type: 2}
+      propertyPath: trackRenderer
+      value: 
+      objectReference: {fileID: 998054041}
+    - target: {fileID: 114112693272114838, guid: 6e20cbc6959a4794aa90b20b11faa2b7,
+        type: 2}
+      propertyPath: bodyCol
+      value: 
+      objectReference: {fileID: 906684809}
+    - target: {fileID: 114112693272114838, guid: 6e20cbc6959a4794aa90b20b11faa2b7,
+        type: 2}
+      propertyPath: turretCol
+      value: 
+      objectReference: {fileID: 1768767127}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6e20cbc6959a4794aa90b20b11faa2b7, type: 2}
   m_IsPrefabParent: 0
@@ -1674,19 +1702,15 @@ Prefab:
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1395441742143146, guid: b7ae37db60f59b540926b30a3cc14cbe, type: 2}
+      propertyPath: m_Name
+      value: ShermanTurret3
+      objectReference: {fileID: 0}
     - target: {fileID: 114873645802960886, guid: b7ae37db60f59b540926b30a3cc14cbe,
         type: 2}
       propertyPath: tankObject
       value: 
       objectReference: {fileID: 1044948905}
-    - target: {fileID: 1395441742143146, guid: b7ae37db60f59b540926b30a3cc14cbe, type: 2}
-      propertyPath: m_Name
-      value: ShermanTurret3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1026021204151196, guid: b7ae37db60f59b540926b30a3cc14cbe, type: 2}
-      propertyPath: m_TagString
-      value: Turret
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b7ae37db60f59b540926b30a3cc14cbe, type: 2}
   m_IsPrefabParent: 0
@@ -1874,6 +1898,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &1768767127 stripped
+MeshCollider:
+  m_PrefabParentObject: {fileID: 64032267566133846, guid: b7ae37db60f59b540926b30a3cc14cbe,
+    type: 2}
+  m_PrefabInternal: {fileID: 1891003939}
+--- !u!23 &1768767128 stripped
+MeshRenderer:
+  m_PrefabParentObject: {fileID: 23692996666911056, guid: b7ae37db60f59b540926b30a3cc14cbe,
+    type: 2}
+  m_PrefabInternal: {fileID: 1891003939}
 --- !u!1 &1773759513
 GameObject:
   m_ObjectHideFlags: 0
