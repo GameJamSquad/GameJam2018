@@ -876,6 +876,11 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 729294725}
+--- !u!64 &831013674 stripped
+MeshCollider:
+  m_PrefabParentObject: {fileID: 64032267566133846, guid: b7ae37db60f59b540926b30a3cc14cbe,
+    type: 2}
+  m_PrefabInternal: {fileID: 661645970}
 --- !u!64 &863419343 stripped
 MeshCollider:
   m_PrefabParentObject: {fileID: 64032267566133846, guid: b7ae37db60f59b540926b30a3cc14cbe,
@@ -1200,7 +1205,7 @@ Prefab:
         type: 2}
       propertyPath: turretRenderer
       value: 
-      objectReference: {fileID: 863419344}
+      objectReference: {fileID: 1216519190}
     - target: {fileID: 114112693272114838, guid: 6e20cbc6959a4794aa90b20b11faa2b7,
         type: 2}
       propertyPath: bodyCol
@@ -1295,6 +1300,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4704469375711500, guid: 741ca551048d28d4dbf8973f027c1759,
     type: 2}
   m_PrefabInternal: {fileID: 1177607870}
+--- !u!23 &1216519190 stripped
+MeshRenderer:
+  m_PrefabParentObject: {fileID: 23692996666911056, guid: b7ae37db60f59b540926b30a3cc14cbe,
+    type: 2}
+  m_PrefabInternal: {fileID: 1685620066}
 --- !u!1001 &1371215048
 Prefab:
   m_ObjectHideFlags: 0
@@ -1702,7 +1712,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1697919996
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2286,7 +2296,7 @@ Prefab:
         type: 2}
       propertyPath: turretCol
       value: 
-      objectReference: {fileID: 863419343}
+      objectReference: {fileID: 831013674}
     - target: {fileID: 114112693272114838, guid: 6e20cbc6959a4794aa90b20b11faa2b7,
         type: 2}
       propertyPath: playerNumber
