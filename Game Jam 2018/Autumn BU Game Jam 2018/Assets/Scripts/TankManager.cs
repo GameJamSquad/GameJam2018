@@ -17,7 +17,7 @@ public class TankManager : MonoBehaviour
     public int playerNumber;
     public List<Material> pMaterials;
 
-    [HideInInspector]
+    //[HideInInspector]
     public int health = 5;
 
     public int maxHealth = 5;
@@ -42,7 +42,11 @@ public class TankManager : MonoBehaviour
         fireGun = "Fire1_P" + playerNumber;
         turretRotation = "TurretRotation_P" + playerNumber;
 
-        turretRenderer.materials[0] = pMaterials[playerNumber - 1];
+
+        Material[] turretMats = turretRenderer.materials;
+        turretMats[1] = pMaterials[playerNumber - 1];
+
+        turretRenderer.materials = turretMats;
     }
 
 	void Update ()
@@ -55,8 +59,8 @@ public class TankManager : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!gManager.isGamePaused || health > 0)
-        {
+        if (!gManager.isGamePaused)
+        { 
             InputManager();
         }
     }
@@ -71,8 +75,6 @@ public class TankManager : MonoBehaviour
         turretCol.enabled = true;
 
         StartCoroutine(Respawn());
-
-        health = maxHealth;
     }
 
     IEnumerator Respawn()
@@ -89,6 +91,8 @@ public class TankManager : MonoBehaviour
 
         bodyCol.enabled = true;
         turretCol.enabled = true;
+
+        health = maxHealth;
     }
 
     public void AdjustScore()
@@ -123,45 +127,49 @@ public class TankManager : MonoBehaviour
 
     void InputManager()
     {
-        UpdateTurretPosition();
+        if (health >= 1)
+        {
 
-        if (Input.GetAxis(vertical) > 0.1f)
-        {
-            rb.AddForce(transform.forward * movementForce);
-        }
-        if (Input.GetAxis(vertical) < -0.1f)
-        {
-            rb.AddForce(-transform.forward * (movementForce / 2f));
-        }
-        if (Input.GetAxis(horizontal) < -0.1f)
-        {
-            Vector3 m_EulerAngleVelocity = new Vector3(0, -rotationSpeed, 0);
-            Quaternion deltaRotation = Quaternion.Euler(m_EulerAngleVelocity * Time.deltaTime);
-            rb.MoveRotation(rb.rotation * deltaRotation);
-        }
-        if (Input.GetAxis(horizontal) > 0.1f)
-        {
-            Vector3 m_EulerAngleVelocity = new Vector3(0, rotationSpeed, 0);
-            Quaternion deltaRotation = Quaternion.Euler(m_EulerAngleVelocity * Time.deltaTime);
-            rb.MoveRotation(rb.rotation * deltaRotation);
-        }
+            UpdateTurretPosition();
 
-        if (Input.GetAxis(turretRotation) > 0.1f)
-        {
-            Vector3 m_EulerAngleVelocity = new Vector3(0, turretRotationSpeed, 0);
-            Quaternion deltaRotation = Quaternion.Euler(m_EulerAngleVelocity * Time.deltaTime);
-            turretRb.MoveRotation(turretRb.rotation * deltaRotation);
-        }
-        if (Input.GetAxis(turretRotation) < -0.1f)
-        {
-            Vector3 m_EulerAngleVelocity = new Vector3(0, -turretRotationSpeed, 0);
-            Quaternion deltaRotation = Quaternion.Euler(m_EulerAngleVelocity * Time.deltaTime);
-            turretRb.MoveRotation(turretRb.rotation * deltaRotation);
-        }
+            if (Input.GetAxis(vertical) > 0.1f)
+            {
+                rb.AddForce(transform.forward * movementForce);
+            }
+            if (Input.GetAxis(vertical) < -0.1f)
+            {
+                rb.AddForce(-transform.forward * (movementForce / 2f));
+            }
+            if (Input.GetAxis(horizontal) < -0.1f)
+            {
+                Vector3 m_EulerAngleVelocity = new Vector3(0, -rotationSpeed, 0);
+                Quaternion deltaRotation = Quaternion.Euler(m_EulerAngleVelocity * Time.deltaTime);
+                rb.MoveRotation(rb.rotation * deltaRotation);
+            }
+            if (Input.GetAxis(horizontal) > 0.1f)
+            {
+                Vector3 m_EulerAngleVelocity = new Vector3(0, rotationSpeed, 0);
+                Quaternion deltaRotation = Quaternion.Euler(m_EulerAngleVelocity * Time.deltaTime);
+                rb.MoveRotation(rb.rotation * deltaRotation);
+            }
 
-        if (Input.GetButtonDown(fireGun))
-        {
-            FireGun();
+            if (Input.GetAxis(turretRotation) > 0.1f)
+            {
+                Vector3 m_EulerAngleVelocity = new Vector3(0, turretRotationSpeed, 0);
+                Quaternion deltaRotation = Quaternion.Euler(m_EulerAngleVelocity * Time.deltaTime);
+                turretRb.MoveRotation(turretRb.rotation * deltaRotation);
+            }
+            if (Input.GetAxis(turretRotation) < -0.1f)
+            {
+                Vector3 m_EulerAngleVelocity = new Vector3(0, -turretRotationSpeed, 0);
+                Quaternion deltaRotation = Quaternion.Euler(m_EulerAngleVelocity * Time.deltaTime);
+                turretRb.MoveRotation(turretRb.rotation * deltaRotation);
+            }
+
+            if (Input.GetButtonDown(fireGun))
+            {
+                FireGun();
+            }
         }
     }
 }

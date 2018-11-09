@@ -71,8 +71,6 @@ public class GameManager : MonoBehaviour
                 SceneManager.LoadScene(Application.loadedLevel);
             }
         }
-
-        Debug.Log(timeSpeed);
     }
 
     void PanelManager()
