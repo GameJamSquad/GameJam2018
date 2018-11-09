@@ -150,7 +150,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1010466633036372}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.3785982, y: 1.9244425, z: 10.019035}
+  m_LocalPosition: {x: -14.775712, y: 1.9244425, z: 5.226368}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4686646643938908}
@@ -459,6 +459,11 @@ MonoBehaviour:
   bodyCol: {fileID: 64486029675569266}
   turretCol: {fileID: 64124191324145260}
   playerNumber: 1
+  pMaterials:
+  - {fileID: 2100000, guid: eefd33936f43cea43afe294daa3eb73b, type: 2}
+  - {fileID: 2100000, guid: dae30b1940cd87e44b1e6db71c15d9c6, type: 2}
+  - {fileID: 2100000, guid: 043b791a795c8bc4f9b294e31dd2aa3f, type: 2}
+  - {fileID: 2100000, guid: af18f721f2f95224fb10519d38b38d41, type: 2}
   health: 5
   maxHealth: 5
   score: 0

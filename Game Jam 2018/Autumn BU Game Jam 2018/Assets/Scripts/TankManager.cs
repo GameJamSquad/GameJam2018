@@ -15,6 +15,7 @@ public class TankManager : MonoBehaviour
     public MeshCollider bodyCol, turretCol;
 
     public int playerNumber;
+    public List<Material> pMaterials;
 
     [HideInInspector]
     public int health = 5;
@@ -40,6 +41,8 @@ public class TankManager : MonoBehaviour
         vertical = "Vertical_P" + playerNumber;
         fireGun = "Fire1_P" + playerNumber;
         turretRotation = "TurretRotation_P" + playerNumber;
+
+        turretRenderer.materials[0] = pMaterials[playerNumber - 1];
     }
 
 	void Update ()
@@ -52,7 +55,7 @@ public class TankManager : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!gManager.isGamePaused || health <= 0)
+        if (!gManager.isGamePaused || health > 0)
         {
             InputManager();
         }
