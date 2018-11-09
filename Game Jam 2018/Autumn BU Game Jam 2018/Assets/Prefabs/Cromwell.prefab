@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114207072221125052}
   m_Layer: 0
   m_Name: Cromwell Head
-  m_TagString: Untagged
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 64779857444947202}
   m_Layer: 0
   m_Name: Cromwell Hull
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -232,7 +232,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1174558881745814}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.1869135, y: 0.5, z: -10.158158}
+  m_LocalPosition: {x: -10.623204, y: 0.5, z: -7.96107}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4041745997801176}
