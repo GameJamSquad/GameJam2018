@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
     public List<GameObject> playerPanels;
     public List<GameObject> playerInPanels;
 
+    public List<Text> playerScores;
+
     public int numOfPlayers = 1;
     public List<TankManager> tanks;
 

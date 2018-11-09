@@ -52,7 +52,7 @@ public class TankManager : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!gManager.isGamePaused)
+        if (!gManager.isGamePaused || health <= 0)
         {
             InputManager();
         }
