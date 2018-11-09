@@ -10,15 +10,19 @@ public class GameManager : MonoBehaviour
     public GameObject lobbyObject;
 
     bool hasFirstPlayer = false, hasSecondPlayer = false, hasThirdPlayer = false, hasFourthPlayer = false;
+    public int firstPlayerTank, secondPlayerTank, thirdPlayerTank, fourthPlayerTank;
 
-    public GameObject playerPanels;
+    public List<GameObject> playerPanels;
+    public List<GameObject> playerInPanels;
 
     public int numOfPlayers = 1;
     public List<TankManager> tanks;
 
     public List<TankTurret> turrets;
 
-    public GameObject tank, turret;
+    public List<GameObject> tankTypes;
+    //public List<GameObject> tankTurrets;
+
     public int scoreToWin = 10;
 
     public float respawnTimer = 5f;
@@ -34,11 +38,65 @@ public class GameManager : MonoBehaviour
         lobbyObject.SetActive(lobbyOpen);
 
         CheckPlayerInput();
+        PanelManager();
+
+        if (lobbyOpen)
+        {
+            isGamePaused = true;
+        }
+    }
+
+    void PanelManager()
+    {
+        if (hasFirstPlayer)
+        {
+            playerPanels[0].SetActive(false);
+            playerInPanels[0].SetActive(true);
+        }
+        else
+        {
+            playerPanels[0].SetActive(true);
+            playerInPanels[0].SetActive(false);
+        }
+
+        if (hasSecondPlayer)
+        {
+            playerPanels[1].SetActive(false);
+            playerInPanels[1].SetActive(true);
+        }
+        else
+        {
+            playerPanels[1].SetActive(true);
+            playerInPanels[1].SetActive(false);
+        }
+
+        if (hasThirdPlayer)
+        {
+            playerPanels[2].SetActive(false);
+            playerInPanels[2].SetActive(true);
+        }
+        else
+        {
+            playerPanels[2].SetActive(true);
+            playerInPanels[2].SetActive(false);
+        }
+
+        if (hasFourthPlayer)
+        {
+            playerPanels[3].SetActive(false);
+            playerInPanels[3].SetActive(true);
+        }
+        else
+        {
+            playerPanels[3].SetActive(true);
+            playerInPanels[3].SetActive(false);
+        }
     }
 
     public void AddFirstPlayer()
     {
         hasFirstPlayer = true;
+        playerPanels[0].SetActive(!hasFirstPlayer);
         numOfPlayers++;
     }
     public void AddSecondPlayer()
@@ -57,6 +115,23 @@ public class GameManager : MonoBehaviour
         numOfPlayers++;
     }
 
+    public void SelectPlayerOneTank(int ID)
+    {
+        firstPlayerTank = ID;
+    }
+    public void SelectPlayerTwoTank(int ID)
+    {
+        secondPlayerTank = ID;
+    }
+    public void SelectPlayerThreeTank(int ID)
+    {
+        thirdPlayerTank = ID;
+    }
+    public void SelectPlayerFourTank(int ID)
+    {
+        fourthPlayerTank = ID;
+    }
+
     public void CheckScores()
     {
         for(int i = 0; i < tanks.Count; i++)
@@ -73,14 +148,38 @@ public class GameManager : MonoBehaviour
         isGamePaused = true;
     }
 
-    void StartGame()
+    public void StartGame()
     {
         for(int i = 0; i < numOfPlayers; i++)
         {
-            GameObject curTank = Instantiate(tank, transform.position, Quaternion.identity);
-            tanks.Add(curTank.GetComponent<TankManager>());
-            tanks[i].playerNumber = i + 1;
+            if (i == 0)
+            {
+                GameObject curTank = Instantiate(tankTypes[firstPlayerTank], respawnPoints[0].position, Quaternion.identity);
+                tanks.Add(curTank.GetComponentInChildren<TankManager>());
+                tanks[i].playerNumber = i + 1;
+            }
+            if (i == 1)
+            {
+                GameObject curTank = Instantiate(tankTypes[secondPlayerTank], respawnPoints[1].position, Quaternion.identity);
+                tanks.Add(curTank.GetComponentInChildren<TankManager>());
+                tanks[i].playerNumber = i + 1;
+            }
+            if (i == 2)
+            {
+                GameObject curTank = Instantiate(tankTypes[thirdPlayerTank], respawnPoints[2].position, Quaternion.identity);
+                tanks.Add(curTank.GetComponentInChildren<TankManager>());
+                tanks[i].playerNumber = i + 1;
+            }
+            if (i == 3)
+            {
+                GameObject curTank = Instantiate(tankTypes[fourthPlayerTank], respawnPoints[3].position, Quaternion.identity);
+                tanks.Add(curTank.GetComponentInChildren<TankManager>());
+                tanks[i].playerNumber = i + 1;
+            }
         }
+
+        lobbyOpen = false;
+        isGamePaused = false;
     }
     
 
