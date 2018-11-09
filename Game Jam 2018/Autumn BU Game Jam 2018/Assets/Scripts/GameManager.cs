@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviour
         }
         if (isGameOver)
         {
-            if (Input.GetButtonDown("Fire1_P1") || Input.GetButtonDown("Fire1_P2") || Input.GetButtonDown("Fire1_P3") || Input.GetButtonDown("Fire1_P4"))
+            if (Input.GetButtonDown("AButton_P1") || Input.GetButtonDown("AButton_P2") || Input.GetButtonDown("AButton_P3") || Input.GetButtonDown("AButton_P4"))
             {
                 SceneManager.LoadScene(Application.loadedLevel);
             }
@@ -239,19 +239,19 @@ public class GameManager : MonoBehaviour
 
     void CheckPlayerInput()
     {
-        if (Input.GetButtonDown("Fire1_P1"))
+        if (Input.GetButtonDown("AButton_P1"))
         {
             AddFirstPlayer();
         }
-        if (Input.GetButtonDown("Fire1_P2"))
+        if (Input.GetButtonDown("AButton_P2"))
         {
             AddSecondPlayer();
         }
-        if (Input.GetButtonDown("Fire1_P3"))
+        if (Input.GetButtonDown("AButton_P3"))
         {
             AddThirdPlayer();
         }
-        if (Input.GetButtonDown("Fire1_P4"))
+        if (Input.GetButtonDown("AButton_P4"))
         {
             AddFourthPlayer();
         }

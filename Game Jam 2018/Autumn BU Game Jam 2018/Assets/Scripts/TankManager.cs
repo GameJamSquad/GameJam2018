@@ -71,8 +71,8 @@ public class TankManager : MonoBehaviour
         bodyRenderer.enabled = false;
         trackRenderer.enabled = false;
 
-        bodyCol.enabled = true;
-        turretCol.enabled = true;
+        bodyCol.enabled = false;
+        turretCol.enabled = false;
 
         StartCoroutine(Respawn());
     }
@@ -166,7 +166,7 @@ public class TankManager : MonoBehaviour
                 turretRb.MoveRotation(turretRb.rotation * deltaRotation);
             }
 
-            if (Input.GetButtonDown(fireGun))
+            if (Input.GetAxis(fireGun) > 0.1f)
             {
                 FireGun();
             }
