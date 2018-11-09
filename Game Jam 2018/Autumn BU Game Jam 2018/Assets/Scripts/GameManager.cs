@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
 
     bool hasFirstPlayer = false, hasSecondPlayer = false, hasThirdPlayer = false, hasFourthPlayer = false;
 
+    public GameObject playerPanels;
+
     public int numOfPlayers = 1;
     public List<TankManager> tanks;
 
@@ -30,11 +32,29 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         lobbyObject.SetActive(lobbyOpen);
+
+        CheckPlayerInput();
     }
 
     public void AddFirstPlayer()
     {
-
+        hasFirstPlayer = true;
+        numOfPlayers++;
+    }
+    public void AddSecondPlayer()
+    {
+        hasSecondPlayer = true;
+        numOfPlayers++;
+    }
+    public void AddThirdPlayer()
+    {
+        hasThirdPlayer = true;
+        numOfPlayers++;
+    }
+    public void AddFourthPlayer()
+    {
+        hasFourthPlayer = true;
+        numOfPlayers++;
     }
 
     public void CheckScores()
@@ -60,6 +80,27 @@ public class GameManager : MonoBehaviour
             GameObject curTank = Instantiate(tank, transform.position, Quaternion.identity);
             tanks.Add(curTank.GetComponent<TankManager>());
             tanks[i].playerNumber = i + 1;
+        }
+    }
+    
+
+    void CheckPlayerInput()
+    {
+        if (Input.GetButtonDown("Fire1_P1"))
+        {
+            AddFirstPlayer();
+        }
+        if (Input.GetButtonDown("Fire1_P2"))
+        {
+            AddSecondPlayer();
+        }
+        if (Input.GetButtonDown("Fire1_P3"))
+        {
+            AddThirdPlayer();
+        }
+        if (Input.GetButtonDown("Fire1_P4"))
+        {
+            AddFourthPlayer();
         }
     }
 }
