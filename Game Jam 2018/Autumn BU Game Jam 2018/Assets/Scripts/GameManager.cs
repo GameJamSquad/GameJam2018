@@ -1,13 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public bool isGamePaused = false;
+    bool isGameOver = false;
     public bool lobbyOpen = true;
 
     public GameObject lobbyObject;
+    public Text winText;
+    int winningPlayer;
 
     bool hasFirstPlayer = false, hasSecondPlayer = false, hasThirdPlayer = false, hasFourthPlayer = false;
     public int firstPlayerTank, secondPlayerTank, thirdPlayerTank, fourthPlayerTank;
@@ -21,7 +26,6 @@ public class GameManager : MonoBehaviour
     public List<TankTurret> turrets;
 
     public List<GameObject> tankTypes;
-    //public List<GameObject> tankTurrets;
 
     public int scoreToWin = 10;
 
@@ -43,6 +47,13 @@ public class GameManager : MonoBehaviour
         if (lobbyOpen)
         {
             isGamePaused = true;
+        }
+        if (isGameOver)
+        {
+            if (Input.GetButtonDown("Fire1_P1") || Input.GetButtonDown("Fire1_P2") || Input.GetButtonDown("Fire1_P3") || Input.GetButtonDown("Fire1_P4"))
+            {
+                SceneManager.LoadScene(Application.loadedLevel);
+            }
         }
     }
 
@@ -138,6 +149,7 @@ public class GameManager : MonoBehaviour
         {
             if(tanks[i].score >= scoreToWin)
             {
+                winningPlayer = i + 1;
                 EndGame();
             }
         }
@@ -145,6 +157,9 @@ public class GameManager : MonoBehaviour
 
     void EndGame()
     {
+        winText.text = "Player " + winningPlayer + " wins the game! \nPress A to start again!";
+        winText.gameObject.SetActive(true);
+        isGameOver = true;
         isGamePaused = true;
     }
 
