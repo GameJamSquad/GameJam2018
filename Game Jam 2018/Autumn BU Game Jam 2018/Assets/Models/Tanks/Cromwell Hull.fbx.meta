@@ -1,7 +1,7 @@
 fileFormatVersion: 2
-guid: cac3402798860a74ebd7c5d39b4eab00
-timeCreated: 1541717618
-licenseType: Free
+guid: 94be5d525f6f16b47ad9abf031954b13
+timeCreated: 1541782021
+licenseType: Pro
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
@@ -11,6 +11,7 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: pCube1
+    6400000: //RootNode
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -43,7 +44,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 175
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1

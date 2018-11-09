@@ -1,58 +1,16 @@
 fileFormatVersion: 2
-guid: 6860ab864eeb5db4495bfe7b1f0ef60e
-timeCreated: 1541717618
-licenseType: Free
+guid: 7d76f6e9cfd9d9e45a52bc28bf36f020
+timeCreated: 1541782021
+licenseType: Pro
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
-    100002: pCube4
-    100004: pCube5
-    100006: pCube6
-    100008: pCylinder10
-    100010: pCylinder11
-    100012: pCylinder12
-    100014: pCylinder5
-    100016: pCylinder6
-    100018: pCylinder7
-    100020: pCylinder8
-    100022: pCylinder9
-    100024: transform10
-    100026: transform11
-    100028: transform12
-    100030: transform3
-    100032: transform4
-    100034: transform5
-    100036: transform6
-    100038: transform7
-    100040: transform8
-    100042: transform9
     400000: //RootNode
-    400002: pCube4
-    400004: pCube5
-    400006: pCube6
-    400008: pCylinder10
-    400010: pCylinder11
-    400012: pCylinder12
-    400014: pCylinder5
-    400016: pCylinder6
-    400018: pCylinder7
-    400020: pCylinder8
-    400022: pCylinder9
-    400024: transform10
-    400026: transform11
-    400028: transform12
-    400030: transform3
-    400032: transform4
-    400034: transform5
-    400036: transform6
-    400038: transform7
-    400040: transform8
-    400042: transform9
     2100000: lambert1
     2100002: Tracks
-    2300000: pCylinder12
-    3300000: pCylinder12
+    2300000: //RootNode
+    3300000: //RootNode
     4300000: pCylinder12
   externalObjects: {}
   materials:

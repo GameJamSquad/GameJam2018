@@ -158,7 +158,6 @@ public class TankManager : MonoBehaviour
 
         if (Input.GetButtonDown(fireGun))
         {
-            Debug.Log("FIRE PLAYER " + playerNumber);
             FireGun();
         }
     }
