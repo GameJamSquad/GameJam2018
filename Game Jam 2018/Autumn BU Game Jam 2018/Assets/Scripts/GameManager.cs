@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
 
     public List<TankTurret> turrets;
 
-    public GameObject tank;
+    public GameObject tank, turret;
     public int scoreToWin = 10;
 
     public float respawnTimer = 5f;

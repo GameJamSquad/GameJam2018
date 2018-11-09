@@ -113,6 +113,16 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &47593034 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4430860379162694, guid: b7ae37db60f59b540926b30a3cc14cbe,
+    type: 2}
+  m_PrefabInternal: {fileID: 661645970}
+--- !u!4 &164794079 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4430860379162694, guid: b7ae37db60f59b540926b30a3cc14cbe,
+    type: 2}
+  m_PrefabInternal: {fileID: 1685620066}
 --- !u!54 &235240090 stripped
 Rigidbody:
   m_PrefabParentObject: {fileID: 54719878907598922, guid: b7ae37db60f59b540926b30a3cc14cbe,
@@ -187,7 +197,6 @@ GameObject:
   m_Component:
   - component: {fileID: 489946028}
   - component: {fileID: 489946027}
-  - component: {fileID: 489946026}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -195,24 +204,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &489946026
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 489946025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
 --- !u!114 &489946027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -373,6 +364,74 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &564509403
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 564509404}
+  - component: {fileID: 564509406}
+  - component: {fileID: 564509405}
+  m_Layer: 0
+  m_Name: Panel (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &564509404
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 564509403}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1697919996}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 500, y: 0}
+  m_SizeDelta: {x: -1000, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &564509405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 564509403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &564509406
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 564509403}
 --- !u!23 &607783259 stripped
 MeshRenderer:
   m_PrefabParentObject: {fileID: 23965687156394654, guid: 6e20cbc6959a4794aa90b20b11faa2b7,
@@ -516,7 +575,7 @@ Prefab:
         type: 2}
       propertyPath: firePoint
       value: 
-      objectReference: {fileID: 1020050509}
+      objectReference: {fileID: 164794079}
     - target: {fileID: 1731572034839392, guid: 6e20cbc6959a4794aa90b20b11faa2b7, type: 2}
       propertyPath: m_Name
       value: ShermanTank3
@@ -594,6 +653,11 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 23118652068173916, guid: 6e20cbc6959a4794aa90b20b11faa2b7,
     type: 2}
   m_PrefabInternal: {fileID: 1044948904}
+--- !u!4 &1124287920 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4430860379162694, guid: b7ae37db60f59b540926b30a3cc14cbe,
+    type: 2}
+  m_PrefabInternal: {fileID: 331537056}
 --- !u!1001 &1177607870
 Prefab:
   m_ObjectHideFlags: 0
@@ -693,7 +757,7 @@ Prefab:
         type: 2}
       propertyPath: firePoint
       value: 
-      objectReference: {fileID: 1020050509}
+      objectReference: {fileID: 1124287920}
     - target: {fileID: 1731572034839392, guid: 6e20cbc6959a4794aa90b20b11faa2b7, type: 2}
       propertyPath: m_Name
       value: ShermanTank2
@@ -983,7 +1047,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1697919996
 RectTransform:
   m_ObjectHideFlags: 0
@@ -995,6 +1059,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 508734636}
+  - {fileID: 564509404}
   m_Father: {fileID: 1773759515}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1172,12 +1237,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGamePaused: 0
-  lobbyOpen: 1
-  lobbyObject: {fileID: 0}
+  lobbyOpen: 0
+  lobbyObject: {fileID: 1697919995}
   numOfPlayers: 1
   tanks: []
   turrets: []
   tank: {fileID: 0}
+  turret: {fileID: 0}
   scoreToWin: 10
   respawnTimer: 5
   respawnPoints:
@@ -1296,7 +1362,7 @@ Prefab:
         type: 2}
       propertyPath: firePoint
       value: 
-      objectReference: {fileID: 1020050509}
+      objectReference: {fileID: 47593034}
     - target: {fileID: 1731572034839392, guid: 6e20cbc6959a4794aa90b20b11faa2b7, type: 2}
       propertyPath: m_Name
       value: ShermanTank4
