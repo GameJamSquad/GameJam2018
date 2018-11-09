@@ -17,6 +17,11 @@ public class TimeAdjuster : MonoBehaviour
         gManager = GameObject.FindObjectOfType<GameManager>();
 	}
 
+    private void FixedUpdate()
+    {
+        transform.Rotate((Vector3.up *32) * Time.deltaTime);
+    }
+
     IEnumerator StartCooldown()
     {
         yield return new WaitForSeconds(cooldownTime);

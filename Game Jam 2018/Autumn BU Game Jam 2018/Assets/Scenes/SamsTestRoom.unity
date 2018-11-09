@@ -1412,8 +1412,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d594c7fb7eb4b5448c617cee874f171, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mRenderer: {fileID: 345510211}
+  mCollider: {fileID: 345510214}
   gManager: {fileID: 0}
-  adjustAmount: -0.5
+  adjustAmount: 2
+  cooldownTime: 5
+--- !u!23 &345510211 stripped
+MeshRenderer:
+  m_PrefabParentObject: {fileID: 2300000, guid: 04220ca8f091212498ef4206585979e1,
+    type: 3}
+  m_PrefabInternal: {fileID: 553386243}
+--- !u!64 &345510214 stripped
+MeshCollider:
+  m_PrefabParentObject: {fileID: 6400000, guid: 04220ca8f091212498ef4206585979e1,
+    type: 3}
+  m_PrefabInternal: {fileID: 553386243}
 --- !u!1 &363148307
 GameObject:
   m_ObjectHideFlags: 0
@@ -5248,8 +5261,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d594c7fb7eb4b5448c617cee874f171, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mRenderer: {fileID: 1508252981}
+  mCollider: {fileID: 1508252984}
   gManager: {fileID: 0}
-  adjustAmount: 2
+  adjustAmount: -0.5
+  cooldownTime: 5
+--- !u!23 &1508252981 stripped
+MeshRenderer:
+  m_PrefabParentObject: {fileID: 2300000, guid: 05e2c48b72994f646ac859b4d79609ba,
+    type: 3}
+  m_PrefabInternal: {fileID: 876164450}
+--- !u!64 &1508252984 stripped
+MeshCollider:
+  m_PrefabParentObject: {fileID: 6400000, guid: 05e2c48b72994f646ac859b4d79609ba,
+    type: 3}
+  m_PrefabInternal: {fileID: 876164450}
 --- !u!1 &1530162302
 GameObject:
   m_ObjectHideFlags: 0
