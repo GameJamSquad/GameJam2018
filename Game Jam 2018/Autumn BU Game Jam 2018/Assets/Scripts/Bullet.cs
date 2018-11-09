@@ -2,14 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour {
-
+public class Bullet : MonoBehaviour
+{
     public Rigidbody rb;
     public float bulletForce = 16f;
 
+    public int damage = 1;
+
+    public TankManager tSource;
+
 	void Start ()
     {
-		
+        StartCoroutine(BulletCountDown());
 	}
 
 	void Update ()
@@ -17,15 +21,41 @@ public class Bullet : MonoBehaviour {
         rb.AddForce(transform.forward * bulletForce);
     }
 
+    IEnumerator BulletCountDown()
+    {
+        yield return new WaitForSeconds(20f);
+        ExplodeBullet();
+    }
+
+    void ExplodeBullet()
+    {
+        Destroy(this.gameObject);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponent<TankManager>().health--;
+            TankManager tHit = other.transform.root.GetComponent<TankManager>();
+            tHit.health -= damage;
+            if (tHit.health <= 0)
+            {
+                tSource.AdjustScore();
+            }
+
+            ExplodeBullet();
         }
         else if(other.gameObject.tag == "Turret")
         {
-            other.gameObject.GetComponent<TurretHitDetection>().tankObject.GetComponent<TankManager>().health--;
+            TankManager tHit = other.gameObject.GetComponent<TurretHitDetection>().tankObject.GetComponent<TankManager>();
+            tHit.health -= damage;
+
+            if(tHit.health <= 0)
+            {
+                tSource.AdjustScore();
+            }
+
+            ExplodeBullet();
         }
     }
 }

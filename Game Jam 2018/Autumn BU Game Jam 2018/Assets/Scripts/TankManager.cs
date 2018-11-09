@@ -4,17 +4,26 @@ using UnityEngine;
 
 public class TankManager : MonoBehaviour
 {
+    public GameManager gManager;
+
     public string horizontal = "Horizontal_P1";
     public string vertical = "Vertical_P1";
     public string fireGun = "Fire1_P1";
     public string turretRotation = "TurretRotation_P1";
 
+    public MeshRenderer bodyRenderer, turretRenderer, trackRenderer;
+    public MeshCollider bodyCol, turretCol;
+
     public int playerNumber;
 
+    [HideInInspector]
     public int health = 5;
 
+    public int maxHealth = 5;
+    public int score = 0;
+
     public Rigidbody rb, turretRb;
-    public float movementForce;
+    public float movementForce, rotationSpeed = 50f, turretRotationSpeed = 50f;
 
     public Transform turretPos;
     bool canShot = true;
@@ -24,24 +33,70 @@ public class TankManager : MonoBehaviour
 
 	void Start ()
     {
-		
+        gManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
+        health = maxHealth;
 	}
 
 	void Update ()
     {
-        Debug.Log(Input.GetButtonDown("Fire1_P1") + " " + Input.GetButtonDown("Fire1_P2"));
+        if(health <= 0)
+        {
+            ExplodeTank();
+        }
 	}
 
     void FixedUpdate()
     {
-        InputManager();
+        if (!gManager.isGamePaused)
+        {
+            InputManager();
+        }
+    }
+
+    void ExplodeTank()
+    {
+        turretRenderer.enabled = false;
+        bodyRenderer.enabled = false;
+        trackRenderer.enabled = false;
+
+        bodyCol.enabled = true;
+        turretCol.enabled = true;
+
+        StartCoroutine(Respawn());
+
+        health = maxHealth;
+    }
+
+    IEnumerator Respawn()
+    {
+        int respawnPoint = Random.Range(0, gManager.respawnPoints.Count);
+
+        transform.position = gManager.respawnPoints[respawnPoint].position;
+
+        yield return new WaitForSeconds(gManager.respawnTimer);
+
+        turretRenderer.enabled = true;
+        bodyRenderer.enabled = true;
+        trackRenderer.enabled = true;
+
+        bodyCol.enabled = true;
+        turretCol.enabled = true;
+    }
+
+    public void AdjustScore()
+    {
+        score++;
+        gManager.CheckScores();
     }
 
     void FireGun()
     {
         if(canShot == true)
         {
-            Instantiate(bullet, firePoint.position, firePoint.rotation);
+            GameObject curBullet = Instantiate(bullet, firePoint.position, firePoint.rotation);
+
+            curBullet.GetComponent<Bullet>().tSource = this;
+
             StartCoroutine(GunCooldown());
             canShot = false;
         }
@@ -72,26 +127,26 @@ public class TankManager : MonoBehaviour
         }
         if (Input.GetAxis(horizontal) < -0.1f)
         {
-            Vector3 m_EulerAngleVelocity = new Vector3(0, -50, 0);
+            Vector3 m_EulerAngleVelocity = new Vector3(0, -rotationSpeed, 0);
             Quaternion deltaRotation = Quaternion.Euler(m_EulerAngleVelocity * Time.deltaTime);
             rb.MoveRotation(rb.rotation * deltaRotation);
         }
         if (Input.GetAxis(horizontal) > 0.1f)
         {
-            Vector3 m_EulerAngleVelocity = new Vector3(0, 50, 0);
+            Vector3 m_EulerAngleVelocity = new Vector3(0, rotationSpeed, 0);
             Quaternion deltaRotation = Quaternion.Euler(m_EulerAngleVelocity * Time.deltaTime);
             rb.MoveRotation(rb.rotation * deltaRotation);
         }
 
         if (Input.GetAxis(turretRotation) > 0.1f)
         {
-            Vector3 m_EulerAngleVelocity = new Vector3(0, 50, 0);
+            Vector3 m_EulerAngleVelocity = new Vector3(0, turretRotationSpeed, 0);
             Quaternion deltaRotation = Quaternion.Euler(m_EulerAngleVelocity * Time.deltaTime);
             turretRb.MoveRotation(turretRb.rotation * deltaRotation);
         }
         if (Input.GetAxis(turretRotation) < -0.1f)
         {
-            Vector3 m_EulerAngleVelocity = new Vector3(0, -50, 0);
+            Vector3 m_EulerAngleVelocity = new Vector3(0, -turretRotationSpeed, 0);
             Quaternion deltaRotation = Quaternion.Euler(m_EulerAngleVelocity * Time.deltaTime);
             turretRb.MoveRotation(turretRb.rotation * deltaRotation);
         }
