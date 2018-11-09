@@ -466,7 +466,7 @@ MonoBehaviour:
   turretRb: {fileID: 54319080276032446}
   movementForce: 300
   rotationSpeed: 50
-  turretRotationSpeed: 50
+  turretRotationSpeed: 100
   turretPos: {fileID: 4853296563685682}
   firePoint: {fileID: 4450632519850814}
   bullet: {fileID: 1840221179134040, guid: 911aca429f2c02d46b64782c3d0582b4, type: 2}
