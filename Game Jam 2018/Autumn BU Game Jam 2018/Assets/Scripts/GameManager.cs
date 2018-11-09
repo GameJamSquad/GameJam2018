@@ -32,9 +32,25 @@ public class GameManager : MonoBehaviour
     public float respawnTimer = 5f;
     public List<Transform> respawnPoints;
 
+    public float timeSpeed = 1;
+
     private void Start()
     {
         
+    }
+
+    public void AdjustTimeSpeed(float amount)
+    {
+        timeSpeed += amount;
+        Time.timeScale = timeSpeed;
+        StartCoroutine(ResetTimeSpeedCooldown());
+    }
+
+    IEnumerator ResetTimeSpeedCooldown()
+    {
+        yield return new WaitForSeconds(5f * timeSpeed);
+        timeSpeed = 1;
+        Time.timeScale = timeSpeed;
     }
 
     private void Update()
@@ -55,6 +71,8 @@ public class GameManager : MonoBehaviour
                 SceneManager.LoadScene(Application.loadedLevel);
             }
         }
+
+        Debug.Log(timeSpeed);
     }
 
     void PanelManager()
