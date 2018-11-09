@@ -1,18 +1,16 @@
 fileFormatVersion: 2
-guid: fb996c5569cc80d4c8c3567190cad955
-timeCreated: 1541710950
+guid: c71eec5f6379f914e9fc3b196e827da6
+timeCreated: 1541765470
 licenseType: Pro
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: Dirt
-    2100002: Grass
+    2100000: Walls
     2300000: //RootNode
     3300000: //RootNode
-    4300000: DirtT
-    9500000: //RootNode
+    4300000: pCube8
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -87,7 +85,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
