@@ -35,7 +35,12 @@ public class TankManager : MonoBehaviour
     {
         gManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         health = maxHealth;
-	}
+
+        horizontal = "Horizontal_P" + playerNumber;
+        vertical = "Vertical_P" + playerNumber;
+        fireGun = "Fire1_P" + playerNumber;
+        turretRotation = "TurretRotation_P" + playerNumber;
+    }
 
 	void Update ()
     {

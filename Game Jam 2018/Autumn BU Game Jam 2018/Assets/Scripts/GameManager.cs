@@ -5,6 +5,11 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public bool isGamePaused = false;
+    public bool lobbyOpen = true;
+
+    public GameObject lobbyObject;
+
+    bool hasFirstPlayer = false, hasSecondPlayer = false, hasThirdPlayer = false, hasFourthPlayer = false;
 
     public int numOfPlayers = 1;
     public List<TankManager> tanks;
@@ -20,6 +25,16 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         
+    }
+
+    private void Update()
+    {
+        lobbyObject.SetActive(lobbyOpen);
+    }
+
+    public void AddFirstPlayer()
+    {
+
     }
 
     public void CheckScores()
