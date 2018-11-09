@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
     public List<Transform> respawnPoints;
 
     public float timeSpeed = 1;
+    public bool slowdownOn, speedupOn;
 
     private void Start()
     {
@@ -50,6 +51,8 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(5f * timeSpeed);
         timeSpeed = 1;
+        slowdownOn = false;
+        speedupOn = false;
         Time.timeScale = timeSpeed;
     }
 

@@ -33,10 +33,13 @@ public class TimeAdjuster : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            gManager.AdjustTimeSpeed(adjustAmount);
-            mRenderer.enabled = false;
-            mCollider.enabled = false;
-            StartCoroutine(StartCooldown());
+            if (!gManager.speedupOn || !gManager.slowdownOn)
+            {
+                gManager.AdjustTimeSpeed(adjustAmount);
+                mRenderer.enabled = false;
+                mCollider.enabled = false;
+                StartCoroutine(StartCooldown());
+            }
         }
     }
 }
