@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DestroyedTank : MonoBehaviour {
+public class DestroyedTank : MonoBehaviour
+{
+
+
 
 	void Start ()
     {

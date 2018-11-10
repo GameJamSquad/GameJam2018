@@ -16,9 +16,16 @@ public class GameManager : MonoBehaviour
 
     bool hasFirstPlayer = false, hasSecondPlayer = false, hasThirdPlayer = false, hasFourthPlayer = false;
     public int firstPlayerTank, secondPlayerTank, thirdPlayerTank, fourthPlayerTank;
+    public bool[] playerLockIns;
 
-    public List<GameObject> playerPanels;
     public List<GameObject> playerInPanels;
+    public List<GameObject> playersLockedinPanels;
+    public GameObject startGamePanel;
+
+    public List<GameObject> player1Buttons;
+    public List<GameObject> player2Buttons;
+    public List<GameObject> player3Buttons;
+    public List<GameObject> player4Buttons;
 
     public GameObject scorePanel;
     public List<Text> playerScores;
@@ -63,12 +70,27 @@ public class GameManager : MonoBehaviour
         if (lobbyOpen)
         {
             isGamePaused = true;
+
+            ChangePlayerTanks();
+            UpdatePlayerButtons();
         }
         if (isGameOver)
         {
             if (Input.GetButtonDown("AButton_P1") || Input.GetButtonDown("AButton_P2") || Input.GetButtonDown("AButton_P3") || Input.GetButtonDown("AButton_P4"))
             {
-                SceneManager.LoadScene(Random.Range(1, 3));
+                int level = Random.Range(1, 3);
+                SceneManager.LoadScene(level);
+            }
+        }
+
+        if (playerLockIns[0] && playerLockIns[1] && playerLockIns[2] && playerLockIns[3])
+        {
+            if (lobbyOpen)
+            {
+                if (Input.GetButtonDown("AButton_P1") || Input.GetButtonDown("AButton_P2") || Input.GetButtonDown("AButton_P3") || Input.GetButtonDown("AButton_P4"))
+                {
+                    StartGame();
+                }
             }
         }
     }
@@ -77,46 +99,55 @@ public class GameManager : MonoBehaviour
     {
         if (hasFirstPlayer)
         {
-            playerPanels[0].SetActive(false);
-            playerInPanels[0].SetActive(true);
+            playerInPanels[0].SetActive(false);
         }
         else
         {
-            playerPanels[0].SetActive(true);
-            playerInPanels[0].SetActive(false);
+            playerInPanels[0].SetActive(true);
         }
 
         if (hasSecondPlayer)
         {
-            playerPanels[1].SetActive(false);
-            playerInPanels[1].SetActive(true);
+            playerInPanels[1].SetActive(false);
         }
         else
         {
-            playerPanels[1].SetActive(true);
-            playerInPanels[1].SetActive(false);
+            playerInPanels[1].SetActive(true);
         }
 
         if (hasThirdPlayer)
         {
-            playerPanels[2].SetActive(false);
-            playerInPanels[2].SetActive(true);
+            playerInPanels[2].SetActive(false);
         }
         else
         {
-            playerPanels[2].SetActive(true);
-            playerInPanels[2].SetActive(false);
+            playerInPanels[2].SetActive(true);
         }
 
         if (hasFourthPlayer)
         {
-            playerPanels[3].SetActive(false);
-            playerInPanels[3].SetActive(true);
+            playerInPanels[3].SetActive(false);
         }
         else
         {
-            playerPanels[3].SetActive(true);
-            playerInPanels[3].SetActive(false);
+            playerInPanels[3].SetActive(true);
+        }
+
+        if (playerLockIns[0])
+        {
+            playersLockedinPanels[0].SetActive(true);
+        }
+        if (playerLockIns[1])
+        {
+            playersLockedinPanels[1].SetActive(true);
+        }
+        if (playerLockIns[2])
+        {
+            playersLockedinPanels[2].SetActive(true);
+        }
+        if (playerLockIns[3])
+        {
+            playersLockedinPanels[3].SetActive(true);
         }
 
         if (!lobbyOpen)
@@ -139,12 +170,248 @@ public class GameManager : MonoBehaviour
         {
             slowDownPanel.SetActive(false);
         }
+
+        if(playerLockIns[0] && playerLockIns[1] && playerLockIns[2] && playerLockIns[3])
+        {
+            startGamePanel.SetActive(true);
+        }
+    }
+
+    void UpdatePlayerButtons()
+    {
+        if(firstPlayerTank == 0)
+        {
+            player1Buttons[0].SetActive(false);
+            player1Buttons[1].SetActive(true);
+
+            player1Buttons[2].SetActive(true);
+            player1Buttons[3].SetActive(false);
+
+            player1Buttons[4].SetActive(true);
+            player1Buttons[5].SetActive(false);
+
+            player1Buttons[6].SetActive(true);
+            player1Buttons[7].SetActive(false);
+        }
+        else if (firstPlayerTank == 1)
+        {
+            player1Buttons[0].SetActive(true);
+            player1Buttons[1].SetActive(false);
+
+            player1Buttons[2].SetActive(false);
+            player1Buttons[3].SetActive(true);
+
+            player1Buttons[4].SetActive(true);
+            player1Buttons[5].SetActive(false);
+
+            player1Buttons[6].SetActive(true);
+            player1Buttons[7].SetActive(false);
+        }
+        else if (firstPlayerTank == 2)
+        {
+            player1Buttons[0].SetActive(true);
+            player1Buttons[1].SetActive(false);
+
+            player1Buttons[2].SetActive(true);
+            player1Buttons[3].SetActive(false);
+
+            player1Buttons[4].SetActive(false);
+            player1Buttons[5].SetActive(true);
+
+            player1Buttons[6].SetActive(true);
+            player1Buttons[7].SetActive(false);
+        }
+        else if (firstPlayerTank == 3)
+        {
+            player1Buttons[0].SetActive(true);
+            player1Buttons[1].SetActive(false);
+
+            player1Buttons[2].SetActive(true);
+            player1Buttons[3].SetActive(false);
+
+            player1Buttons[4].SetActive(true);
+            player1Buttons[5].SetActive(false);
+
+            player1Buttons[6].SetActive(false);
+            player1Buttons[7].SetActive(true);
+        }
+
+        if (secondPlayerTank == 0)
+        {
+            player2Buttons[0].SetActive(false);
+            player2Buttons[1].SetActive(true);
+
+            player2Buttons[2].SetActive(true);
+            player2Buttons[3].SetActive(false);
+
+            player2Buttons[4].SetActive(true);
+            player2Buttons[5].SetActive(false);
+
+            player2Buttons[6].SetActive(true);
+            player2Buttons[7].SetActive(false);
+        }
+        else if (secondPlayerTank == 1)
+        {
+            player2Buttons[0].SetActive(true);
+            player2Buttons[1].SetActive(false);
+
+            player2Buttons[2].SetActive(false);
+            player2Buttons[3].SetActive(true);
+
+            player2Buttons[4].SetActive(true);
+            player2Buttons[5].SetActive(false);
+
+            player2Buttons[6].SetActive(true);
+            player2Buttons[7].SetActive(false);
+        }
+        else if (secondPlayerTank == 2)
+        {
+            player2Buttons[0].SetActive(true);
+            player2Buttons[1].SetActive(false);
+
+            player2Buttons[2].SetActive(true);
+            player2Buttons[3].SetActive(false);
+
+            player2Buttons[4].SetActive(false);
+            player2Buttons[5].SetActive(true);
+
+            player2Buttons[6].SetActive(true);
+            player2Buttons[7].SetActive(false);
+        }
+        else if (secondPlayerTank == 3)
+        {
+            player2Buttons[0].SetActive(true);
+            player2Buttons[1].SetActive(false);
+
+            player2Buttons[2].SetActive(true);
+            player2Buttons[3].SetActive(false);
+
+            player2Buttons[4].SetActive(true);
+            player2Buttons[5].SetActive(false);
+
+            player2Buttons[6].SetActive(false);
+            player2Buttons[7].SetActive(true);
+        }
+
+        if (thirdPlayerTank == 0)
+        {
+            player3Buttons[0].SetActive(false);
+            player3Buttons[1].SetActive(true);
+
+            player3Buttons[2].SetActive(true);
+            player3Buttons[3].SetActive(false);
+
+            player3Buttons[4].SetActive(true);
+            player3Buttons[5].SetActive(false);
+
+            player3Buttons[6].SetActive(true);
+            player3Buttons[7].SetActive(false);
+        }
+        else if (thirdPlayerTank == 1)
+        {
+            player3Buttons[0].SetActive(true);
+            player3Buttons[1].SetActive(false);
+
+            player3Buttons[2].SetActive(false);
+            player3Buttons[3].SetActive(true);
+        
+            player3Buttons[4].SetActive(true);
+            player3Buttons[5].SetActive(false);
+
+            player3Buttons[6].SetActive(true);
+            player3Buttons[7].SetActive(false);
+        }
+        else if (thirdPlayerTank == 2)
+        {
+            player3Buttons[0].SetActive(true);
+            player3Buttons[1].SetActive(false);
+
+            player3Buttons[2].SetActive(true);
+            player3Buttons[3].SetActive(false);
+
+            player3Buttons[4].SetActive(false);
+            player3Buttons[5].SetActive(true);
+
+            player3Buttons[6].SetActive(true);
+            player3Buttons[7].SetActive(false);
+        }
+        else if (thirdPlayerTank == 3)
+        {
+            player3Buttons[0].SetActive(true);
+            player3Buttons[1].SetActive(false);
+
+            player3Buttons[2].SetActive(true);
+            player3Buttons[3].SetActive(false);
+
+            player3Buttons[4].SetActive(true);
+            player3Buttons[5].SetActive(false);
+
+            player3Buttons[6].SetActive(false);
+            player3Buttons[7].SetActive(true);
+        }
+
+
+        if (fourthPlayerTank == 0)
+        {
+            player4Buttons[0].SetActive(false);
+            player4Buttons[1].SetActive(true);
+
+            player4Buttons[2].SetActive(true);
+            player4Buttons[3].SetActive(false);
+
+            player4Buttons[4].SetActive(true);
+            player4Buttons[5].SetActive(false);
+
+            player4Buttons[6].SetActive(true);
+            player4Buttons[7].SetActive(false);
+        }
+        else if (fourthPlayerTank == 1)
+        {
+            player4Buttons[0].SetActive(true);
+            player4Buttons[1].SetActive(false);
+
+            player4Buttons[2].SetActive(false);
+            player4Buttons[3].SetActive(true);
+
+            player4Buttons[4].SetActive(true);
+            player4Buttons[5].SetActive(false);
+
+            player4Buttons[6].SetActive(true);
+            player4Buttons[7].SetActive(false);
+        }
+        else if (fourthPlayerTank == 2)
+        {
+            player4Buttons[0].SetActive(true);
+            player4Buttons[1].SetActive(false);
+
+            player4Buttons[2].SetActive(true);
+            player4Buttons[3].SetActive(false);
+
+            player4Buttons[4].SetActive(false);
+            player4Buttons[5].SetActive(true);
+
+            player4Buttons[6].SetActive(true);
+            player4Buttons[7].SetActive(false);
+        }
+        else if (fourthPlayerTank == 3)
+        {
+            player4Buttons[0].SetActive(true);
+            player4Buttons[1].SetActive(false);
+
+            player4Buttons[2].SetActive(true);
+            player4Buttons[3].SetActive(false);
+
+            player4Buttons[4].SetActive(true);
+            player4Buttons[5].SetActive(false);
+
+            player4Buttons[6].SetActive(false);
+            player4Buttons[7].SetActive(true);
+        }
     }
 
     public void AddFirstPlayer()
     {
         hasFirstPlayer = true;
-        playerPanels[0].SetActive(!hasFirstPlayer);
         numOfPlayers++;
     }
     public void AddSecondPlayer()
@@ -161,23 +428,6 @@ public class GameManager : MonoBehaviour
     {
         hasFourthPlayer = true;
         numOfPlayers++;
-    }
-
-    public void SelectPlayerOneTank(int ID)
-    {
-        firstPlayerTank = ID;
-    }
-    public void SelectPlayerTwoTank(int ID)
-    {
-        secondPlayerTank = ID;
-    }
-    public void SelectPlayerThreeTank(int ID)
-    {
-        thirdPlayerTank = ID;
-    }
-    public void SelectPlayerFourTank(int ID)
-    {
-        fourthPlayerTank = ID;
     }
 
     public void CheckScores()
@@ -254,6 +504,133 @@ public class GameManager : MonoBehaviour
         if (Input.GetButtonDown("AButton_P4"))
         {
             AddFourthPlayer();
+        }
+    }
+
+    void ChangePlayerTanks()
+    {
+        if (hasFirstPlayer)
+        {
+            if (!playerLockIns[0])
+            {
+                if (Input.GetButtonDown("AButton_P1"))
+                {
+                    firstPlayerTank = 0;
+                }
+                if (Input.GetButtonDown("BButton_P1"))
+                {
+                    firstPlayerTank = 1;
+                }
+                if (Input.GetButtonDown("XButton_P1"))
+                {
+                    firstPlayerTank = 2;
+                }
+                if (Input.GetButtonDown("YButton_P1"))
+                {
+                    firstPlayerTank = 3;
+                }
+
+                if (firstPlayerTank != -1)
+                {
+                    if (Input.GetButtonDown("Start_P1"))
+                    {
+                        playerLockIns[0] = true;
+                    }
+                }
+            }
+
+            if (hasSecondPlayer)
+            {
+                if (!playerLockIns[1])
+                {
+                    if (Input.GetButtonDown("AButton_P2"))
+                    {
+                        secondPlayerTank = 0;
+                    }
+                    if (Input.GetButtonDown("BButton_P2"))
+                    {
+                        secondPlayerTank = 1;
+                    }
+                    if (Input.GetButtonDown("XButton_P2"))
+                    {
+                        secondPlayerTank = 2;
+                    }
+                    if (Input.GetButtonDown("YButton_P2"))
+                    {
+                        secondPlayerTank = 3;
+                    }
+
+                    if (secondPlayerTank != -1)
+                    {
+                        if (Input.GetButtonDown("Start_P2"))
+                        {
+                            playerLockIns[1] = true;
+                        }
+                    }
+                }
+            }
+
+            if (hasThirdPlayer)
+            {
+                if (!playerLockIns[2])
+                {
+                    if (Input.GetButtonDown("AButton_P3"))
+                    {
+                        thirdPlayerTank = 0;
+                    }
+                    if (Input.GetButtonDown("BButton_P3"))
+                    {
+                        thirdPlayerTank = 1;
+                    }
+                    if (Input.GetButtonDown("XButton_P3"))
+                    {
+                        thirdPlayerTank = 2;
+                    }
+                    if (Input.GetButtonDown("YButton_P3"))
+                    {
+                        thirdPlayerTank = 3;
+                    }
+
+                    if (thirdPlayerTank != -1)
+                    {
+                        if (Input.GetButtonDown("Start_P3"))
+                        {
+                            playerLockIns[2] = true;
+                        }
+                    }
+                }
+            }
+
+            if (hasFourthPlayer)
+            {
+                if (!playerLockIns[3])
+                {
+                    if (Input.GetButtonDown("AButton_P4"))
+                    {
+                        fourthPlayerTank = 0;
+                    }
+                    if (Input.GetButtonDown("BButton_P4"))
+                    {
+                        fourthPlayerTank = 1;
+                    }
+                    if (Input.GetButtonDown("XButton_P4"))
+                    {
+                        fourthPlayerTank = 2;
+                    }
+                    if (Input.GetButtonDown("YButton_P4"))
+                    {
+                        fourthPlayerTank = 3;
+                    }
+
+                    if (fourthPlayerTank != -1)
+                    {
+                        if (Input.GetButtonDown("Start_P4"))
+                        {
+                            playerLockIns[3] = true;
+                        }
+                    }
+                }
+            }
         }
     }
 }
