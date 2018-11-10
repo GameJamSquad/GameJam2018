@@ -21,7 +21,7 @@ public class TimeAdjuster : MonoBehaviour
 
     private void FixedUpdate()
     {
-        transform.Rotate((Vector3.up *32) * Time.deltaTime);
+        transform.Rotate((Vector3.up * 32) * Time.deltaTime);
     }
 
     IEnumerator StartCooldown()

@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviour
         {
             if (Input.GetButtonDown("AButton_P1") || Input.GetButtonDown("AButton_P2") || Input.GetButtonDown("AButton_P3") || Input.GetButtonDown("AButton_P4"))
             {
-                SceneManager.LoadScene(Application.loadedLevel);
+                SceneManager.LoadScene(Random.Range(1, 3));
             }
         }
     }

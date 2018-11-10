@@ -45,7 +45,6 @@ public class TankManager : MonoBehaviour
         fireGun = "Fire1_P" + playerNumber;
         turretRotation = "TurretRotation_P" + playerNumber;
 
-
         Material[] turretMats = turretRenderer.materials;
         turretMats[1] = pMaterials[playerNumber - 1];
 
@@ -57,6 +56,11 @@ public class TankManager : MonoBehaviour
         if(health <= 0)
         {
             ExplodeTank();
+        }
+
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            AdjustScore();
         }
 	}
 
