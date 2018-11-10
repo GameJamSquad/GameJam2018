@@ -57,5 +57,9 @@ public class Bullet : MonoBehaviour
 
             ExplodeBullet();
         }
+        else
+        {
+            ExplodeBullet();
+        }
     }
 }
