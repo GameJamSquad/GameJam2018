@@ -14,8 +14,6 @@ public class DestroyedTank : MonoBehaviour
 
     IEnumerator DestroyTank()
     {
-        yield return new WaitForSeconds(2f);
-
         yield return new WaitForSeconds(8f);
         Destroy(this.gameObject);
     }
