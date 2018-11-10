@@ -478,15 +478,15 @@ MonoBehaviour:
   - {fileID: 2100000, guid: dae30b1940cd87e44b1e6db71c15d9c6, type: 2}
   - {fileID: 2100000, guid: 043b791a795c8bc4f9b294e31dd2aa3f, type: 2}
   - {fileID: 2100000, guid: af18f721f2f95224fb10519d38b38d41, type: 2}
-  health: 4
-  maxHealth: 4
+  health: 5
+  maxHealth: 5
   score: 0
   rb: {fileID: 54287485723147398}
   turretRb: {fileID: 54506353591115122}
-  movementForce: 150
+  movementForce: 300
   rotationSpeed: 50
-  turretRotationSpeed: 50
+  turretRotationSpeed: 100
   turretPos: {fileID: 4465986456746958}
   firePoint: {fileID: 4316350074010074}
-  bullet: {fileID: 1152368675746784, guid: 05751ecefccce4442bc282160d93b991, type: 2}
+  bullet: {fileID: 1239692429269326, guid: 09271639cb080d2489a3ede2099889e8, type: 2}
   gunCooldown: 1
