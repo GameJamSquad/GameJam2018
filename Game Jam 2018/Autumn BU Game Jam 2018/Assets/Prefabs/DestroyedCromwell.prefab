@@ -63,6 +63,7 @@ GameObject:
   - component: {fileID: 199880945159487178}
   - component: {fileID: 198419586368813632}
   - component: {fileID: 82298016714051498}
+  - component: {fileID: 114283484166273638}
   m_Layer: 0
   m_Name: DestroyedCromwell
   m_TagString: Untagged
@@ -359,6 +360,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &114283484166273638
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1942376487129948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bedd112221015364c83a00cf2fc65b1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &198327141294142138
 ParticleSystem:
   m_ObjectHideFlags: 1

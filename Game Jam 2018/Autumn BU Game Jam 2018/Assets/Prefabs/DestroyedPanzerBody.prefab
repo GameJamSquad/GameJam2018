@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 198856050119140350}
   - component: {fileID: 199570884421623196}
   - component: {fileID: 82898186644517310}
+  - component: {fileID: 114150840160290712}
   m_Layer: 0
   m_Name: DestroyedPanzerBody
   m_TagString: Untagged
@@ -359,6 +360,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &114150840160290712
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1322585033550862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bedd112221015364c83a00cf2fc65b1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &198461867759430440
 ParticleSystem:
   m_ObjectHideFlags: 1
